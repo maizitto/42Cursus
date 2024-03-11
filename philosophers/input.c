@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:13:58 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/11 12:27:03 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:24:44 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ int	is_valid(char **argv)
 	i = 0;
 	while (argv[++i])
 	{
-		if (!is_numb(argv[i]))
-			ft_close("Error: invalid inputs\n", -1);
+		if (!is_numb(argv[i]) || ft_atoi(argv[i]) < 0)
+			ft_close("Error: invalid inputs\n", -1, 0, NULL);
 	}
 	if (ft_atoi(argv[1]) < 1 || ft_atoi(argv[1]) > MAX_PHILOS)
-		ft_close("Error: wrong philosophers number\n", -1);
+		ft_close("Error: wrong philosophers number\n", -1, 0, NULL);
 	return (1);
 }

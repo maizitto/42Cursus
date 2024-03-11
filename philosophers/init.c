@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:27:54 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/11 15:53:20 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:31:13 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ static void	init_table(char **argv, int argc, t_table *table)
 	pthread_mutex_init(&table->write, NULL);
 	table->pid = malloc(sizeof(pthread_t) * table->n_philo);
 	if (!table->pid)
-		ft_close("ERROR\n", -1);
+		ft_close("ERROR\n", -1, 0, table);
 	table->philo = malloc(sizeof(t_philo) * table->n_philo);
 	if (!table->philo)
-		ft_close("ERROR\n", -1);
+		ft_close("ERROR\n", -1, 0, table);
 	table->forks = malloc(sizeof(pthread_mutex_t) * table->n_philo);
 	if (!table->forks)
-		ft_close("ERROR\n", -1);
+		ft_close("ERROR\n", -1, 0, table);
 }
 
 static void	init_philos(t_table *table)
@@ -61,7 +61,7 @@ static void	init_philos(t_table *table)
 	i = -1;
 	while (++i < table ->n_philo)
 	{
-		table->philo[i].data = table;
+		table->philo[i].table = table;
 		table->philo[i].id = i + 1;
 		table->philo[i].death_time = table->death_time;
 		table->philo[i].n_meals = 0;
@@ -71,7 +71,7 @@ static void	init_philos(t_table *table)
 	}
 }
 
-int	init(char **argv, int argc, t_table *table)
+void	init(char **argv, int argc, t_table *table)
 {
 	init_table(argv, argc, table);
 	init_forks(table);
