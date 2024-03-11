@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:07:48 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/11 12:17:48 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:40:16 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_philo
 
 typedef struct s_table
 {
-	pthread_t		pid;
+	pthread_t		*pid;
 	int				n_philo;
 	int				meals;
 	int				n_dead;
@@ -57,5 +57,7 @@ typedef struct s_table
 void	ft_close(char *err, int nexit);
 void	put_str(char *str);
 int		is_valid(char **argv);
+long	ft_atoi(const char *str);
+int		init(char **argv, int argc, t_table *table);
 
 #endif

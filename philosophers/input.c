@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:13:58 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/11 11:42:17 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:27:03 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	my_isspace(char ch)
 		return (0);
 }
 
-static long	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	long	number;
 	int		sign;
