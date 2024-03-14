@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:27:54 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/11 17:31:13 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:56:16 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ static void	init_forks(t_table *table)
 	while (++i < table->n_philo)
 	{
 		table->philo[i].left = &table->forks[i];
-		table->philo[i].right = &table->forks[i - 1];
+		if (i + 1 == table->n_philo)
+			table->philo[i].right = &table->forks[0];
+		else
+			table->philo[i].right = &table->forks[i + 1];
 	}
 }
 
@@ -64,10 +67,15 @@ static void	init_philos(t_table *table)
 		table->philo[i].table = table;
 		table->philo[i].id = i + 1;
 		table->philo[i].death_time = table->death_time;
+		table->philo[i].sleep_time = table->sleep_time;
+		table->philo[i].eat_time = table->eat_time;
+		table->philo[i].start_time = get_time();
+		table->philo[i].last_meal = get_time();
 		table->philo[i].n_meals = 0;
 		table->philo[i].eating = 0;
-		table->philo[i].state = 0;
+		table->philo[i].dead = 0;
 		pthread_mutex_init(&table->philo[i].lock, NULL);
+		pthread_mutex_init(&table->philo[i].write, NULL);
 	}
 }
 
