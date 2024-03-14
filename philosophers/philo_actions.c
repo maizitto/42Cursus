@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:52:21 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/14 18:00:10 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/14 23:13:55 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	eat(t_philo *philo)
 	msg("has taken a fork", philo);
 	philo->eating = 1;
 	msg("is eating", philo);
-	pthread_mutex_lock(&philo->lock);
+	pthread_mutex_lock(&philo->meal);
 	philo->last_meal = get_time();
 	philo->n_meals++;
-	pthread_mutex_unlock(&philo->lock);
+	pthread_mutex_unlock(&philo->meal);
 	usleep(philo->eat_time);
 	philo->eating = 0;
 	pthread_mutex_unlock(philo->left);

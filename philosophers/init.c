@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:27:54 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/14 17:56:16 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/14 23:15:20 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ static void	init_forks(t_table *table)
 static void	init_table(char **argv, int argc, t_table *table)
 {
 	table->n_philo = (int)ft_atoi(argv[1]);
-	table->death_time = (u_int64_t)ft_atoi(argv[2]);
-	table->eat_time = (u_int64_t)ft_atoi(argv[3]);
-	table->sleep_time = (u_int64_t)ft_atoi(argv[4]);
+	table->death_time = ft_atoi(argv[2]);
+	table->eat_time = ft_atoi(argv[3]) * 1000;
+	table->sleep_time = ft_atoi(argv[4]) * 1000;
 	if (argc == 6)
 		table->meals = (int) ft_atoi(argv[5]);
 	else
@@ -76,6 +76,7 @@ static void	init_philos(t_table *table)
 		table->philo[i].dead = 0;
 		pthread_mutex_init(&table->philo[i].lock, NULL);
 		pthread_mutex_init(&table->philo[i].write, NULL);
+		pthread_mutex_init(&table->philo[i].meal, NULL);
 	}
 }
 

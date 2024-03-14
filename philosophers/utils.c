@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:07:28 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/14 17:35:50 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:40:32 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_close(char *err, int nexit, int flag, t_table *table)
 			pthread_mutex_destroy(&table->forks[i]);
 			pthread_mutex_destroy(&table->philo[i].lock);
 			pthread_mutex_destroy(&table->philo[i].write);
+			pthread_mutex_destroy(&table->philo[i].meal);
 		}
 		pthread_mutex_destroy(&table->write);
 		pthread_mutex_destroy(&table->lock);
@@ -55,7 +56,7 @@ void	clear_table(t_table *table)
 		free(table->philo);
 }
 
-u_int64_t	get_time(void)
+size_t	get_time(void)
 {
 	struct timeval	time;
 

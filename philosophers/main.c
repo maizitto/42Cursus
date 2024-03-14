@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 10:39:50 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/14 17:14:24 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/14 23:51:00 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ int	main(int argc, char **argv)
 		is_valid(argv);
 		init(argv, argc, &table);
 		start(&table);
-		ft_close("End", 1, 1, &table);
+		ft_close(NULL, 1, 1, &table);
 	}
 }
