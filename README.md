@@ -38,3 +38,8 @@
 #5 PIPEX
 
 <img width="223" alt="Screen Shot 2024-02-07 at 10 29 30 AM" src="https://github.com/maizitto/42Cursus/assets/81831056/2c068868-9348-48f6-b6dc-00ddcad531e8">
+
+
+# PHILOSOPHERS
+
+<img width="209" alt="Screen Shot 2024-01-18 at 3 31 19 PM" src="https://github.com/maizitto/42Cursus/assets/81831056/67d398b0-e802-494c-adc3-46b067a401d2">
