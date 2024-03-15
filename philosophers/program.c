@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:34:42 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/14 23:55:59 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/15 09:20:03 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_dead(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->lock);
-	if (philo->dead)
+	if (*philo->dead)
 	{
 		pthread_mutex_unlock(&philo->lock);
 		return (1);
@@ -44,10 +44,8 @@ int	start(t_table *table)
 {
 	pthread_t	ch;
 	int			i;
-	void		*res;
 
 	i = -1;
-	res = 0;
 	if (pthread_create(&ch, NULL, &checker, table))
 		ft_close("Error\n", -1, 1, table);
 	while (++i < table->n_philo)
@@ -55,10 +53,8 @@ int	start(t_table *table)
 		if (pthread_create(&table->philo[i].t1, NULL, &rout, &table->philo[i]))
 			ft_close("Error\n", -1, 1, table);
 	}
-	if (pthread_join(ch, &res))
+	if (pthread_join(ch, NULL))
 		ft_close("Error\n", -1, 1, table);
-	if (res)
-		return (1);
 	i = -1;
 	while (++i < table->n_philo)
 	{

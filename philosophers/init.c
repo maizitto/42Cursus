@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:27:54 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/14 23:15:20 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/15 09:15:54 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	init_table(char **argv, int argc, t_table *table)
 	else
 		table->meals = -1;
 	table->n_completed = 0;
-	table->n_dead = 0;
+	table->dead = 0;
 	pthread_mutex_init(&table->lock, NULL);
 	pthread_mutex_init(&table->write, NULL);
 	table->pid = malloc(sizeof(pthread_t) * table->n_philo);
@@ -73,7 +73,7 @@ static void	init_philos(t_table *table)
 		table->philo[i].last_meal = get_time();
 		table->philo[i].n_meals = 0;
 		table->philo[i].eating = 0;
-		table->philo[i].dead = 0;
+		table->philo[i].dead = &table->dead;
 		pthread_mutex_init(&table->philo[i].lock, NULL);
 		pthread_mutex_init(&table->philo[i].write, NULL);
 		pthread_mutex_init(&table->philo[i].meal, NULL);

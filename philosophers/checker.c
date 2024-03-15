@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:03:38 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/15 00:00:15 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/15 09:26:59 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,8 @@ static int	is_dead_all(t_table *table)
 		if (is_dead(&table->philo[i], table->death_time))
 		{
 			msg("died", &table->philo[i]);
-			table->philo[i].dead = 1;
 			pthread_mutex_lock(&table->lock);
-			table->n_dead = 1;
+			table->dead = 1;
 			pthread_mutex_unlock(&table->lock);
 			return (1);
 		}
@@ -63,7 +62,8 @@ static int	eaten(t_table *table)
 	if (completed == table->n_philo)
 	{
 		pthread_mutex_lock(&table->lock);
-		table->n_dead = 1;
+		table->dead = 1;
+		printf("All philos are full\n");
 		pthread_mutex_unlock(&table->lock);
 		return (1);
 	}

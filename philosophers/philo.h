@@ -6,7 +6,7 @@
 /*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:07:48 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/14 22:39:23 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/15 09:28:23 by maizitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_philo
 	pthread_t		t1;
 	int				id;
 	int				n_meals;
-	int				dead;
+	int				*dead;
 	int				eating;
 	size_t			last_meal;
 	size_t			death_time;
@@ -48,7 +48,7 @@ typedef struct s_table
 	pthread_t		*pid;
 	int				n_philo;
 	int				meals;
-	int				n_dead;
+	int				dead;
 	int				n_completed;
 	t_philo			*philo;
 	size_t			death_time;
