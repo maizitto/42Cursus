@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 11:07:48 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/15 10:44:49 by mmasitto         ###   ########.fr       */
+/*   Created: 2024/03/11 11:07:48 by mmasitto          #+#    #+#             */
+/*   Updated: 2024/03/15 12:00:39 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ typedef struct s_table
 	size_t			sleep_time;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	lock;
-	pthread_mutex_t	write;
 }	t_table;
 
 void		ft_close(char *err, int nexit, int flag, t_table *table);

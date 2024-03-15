@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 12:27:54 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/15 10:44:54 by mmasitto         ###   ########.fr       */
+/*   Created: 2024/03/11 12:27:54 by mmasitto          #+#    #+#             */
+/*   Updated: 2024/03/15 12:00:59 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static void	init_table(char **argv, int argc, t_table *table)
 	table->n_completed = 0;
 	table->dead = 0;
 	pthread_mutex_init(&table->lock, NULL);
-	pthread_mutex_init(&table->write, NULL);
 	table->pid = malloc(sizeof(pthread_t) * table->n_philo);
 	if (!table->pid)
 		ft_close("ERROR\n", -1, 0, table);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 11:07:28 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/15 11:31:41 by mmasitto         ###   ########.fr       */
+/*   Created: 2024/03/11 11:07:28 by mmasitto          #+#    #+#             */
+/*   Updated: 2024/03/15 12:00:45 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	ft_close(char *err, int nexit, int flag, t_table *table)
 			pthread_mutex_destroy(&table->philo[i].write);
 			pthread_mutex_destroy(&table->philo[i].meal);
 		}
-		pthread_mutex_destroy(&table->write);
 		pthread_mutex_destroy(&table->lock);
 	}
 	if (table)
