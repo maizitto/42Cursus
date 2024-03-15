@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 10:39:50 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/15 09:22:41 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/15 11:29:18 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "philo.h"
 
 #include "philo.h"
 

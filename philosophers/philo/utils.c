@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:07:28 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/15 09:31:54 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/15 11:31:41 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	ft_close(char *err, int nexit, int flag, t_table *table)
 		pthread_mutex_destroy(&table->write);
 		pthread_mutex_destroy(&table->lock);
 	}
-	clear_table(table);
+	if (table)
+		clear_table(table);
 	exit(nexit);
 }
 

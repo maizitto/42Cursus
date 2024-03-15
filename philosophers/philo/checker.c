@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maizitto <maizitto@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:03:38 by maizitto          #+#    #+#             */
-/*   Updated: 2024/03/15 09:26:59 by maizitto         ###   ########.fr       */
+/*   Updated: 2024/03/15 10:44:55 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,18 @@ static int	is_dead_all(t_table *table)
 static int	eaten(t_table *table)
 {
 	int	i;
-	int	completed;
 
 	i = -1;
-	completed = 0;
 	if (table->meals == -1)
 		return (0);
 	while (++i < table->n_philo)
 	{
 		pthread_mutex_lock(&table->philo[i].lock);
 		if (table->philo[i].n_meals >= table->meals)
-			completed++;
+			table->n_completed++;
 		pthread_mutex_unlock(&table->philo[i].lock);
 	}
-	if (completed == table->n_philo)
+	if (table->n_completed == table->n_philo)
 	{
 		pthread_mutex_lock(&table->lock);
 		table->dead = 1;
