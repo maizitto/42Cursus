@@ -1,0 +1,13 @@
+{
+	"files.associations": {
+		"includes.h": "c",
+		"get_next_line.h": "c",
+		"math.h": "c",
+		"stdio.h": "c",
+		"stdlib.h": "c",
+		"fcntl.h": "c",
+		"limits.h": "c",
+		"time.h": "c",
+		"structures.h": "c"
+	}
+}
