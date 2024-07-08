@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:21:10 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/07/08 11:36:07 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/07/08 23:33:23 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ typedef struct s_rgb
 	int	set;
 }	t_rgb;
 
+typedef struct s_sprite
+{
+	double	x;
+	double	y;
+	char	type;
+}	t_sprite;
+
 typedef struct s_w_text
 {
 	char	*no;
@@ -60,6 +67,7 @@ typedef struct s_game
 	t_map		map;
 	t_data		data;
 	t_asset		asset;
+	t_sprite	player;
 	char		**file;
 	t_wal_text	w_text;
 }				t_game;

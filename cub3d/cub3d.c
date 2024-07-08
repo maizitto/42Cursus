@@ -6,23 +6,11 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:25:22 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/07/08 13:28:35 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/07/09 00:36:53 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
-
-static void	print_matrix(char **matrix)
-{
-	int	i;
-
-	i = 0;
-	while (matrix[i])
-	{
-		printf("%s\n", matrix[i]);
-		i++;
-	}
-}
 
 int	main(int argc, char **argv)
 {

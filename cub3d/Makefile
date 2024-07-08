@@ -18,7 +18,7 @@ ascii_art:
 
 SRCS = cub3d.c \
 		src/gnl/get_next_line.c src/gnl/get_next_line_utils.c src/gnl/utils.c \
-		src/init_struct.c src/init_game.c src/errors.c src/parser.c
+		src/init_struct.c src/init_game.c src/errors.c src/parser.c src/flood.c
 
 OBJS = $(SRCS:.c=.o)
 

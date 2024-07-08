@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:30:30 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/07/08 14:42:48 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/07/09 00:09:31 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ static void	init_textures(t_game *game)
 	game->w_text.f_rgb.g = -1;
 	game->w_text.f_rgb.b = -1;
 	game->w_text.f_rgb.set = 0;
+	game->player.x = 0.0;
+	game->player.y = 0.0;
 }
 
 void	init_game(t_game *game, char *str)

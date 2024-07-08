@@ -6,9 +6,11 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:45:00 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/07/08 15:45:51 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/07/09 00:37:03 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../includes/cub3d.h"
 
 static int	my_isspace(char ch)
 {
@@ -57,4 +59,16 @@ int	skip_spaces(char *file)
 	while (file[i] == ' ')
 		i++;
 	return (i);
+}
+
+void	print_matrix(char **matrix)
+{
+	int	i;
+
+	i = 0;
+	while (matrix[i])
+	{
+		printf("%s\n", matrix[i]);
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:53:06 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/07/08 17:34:37 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/07/09 00:24:46 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,41 @@ static void	remove_space(t_game *g, int j, int i)
 	check_up_down(g, -1, -1, 0);
 }
 
+static void	aux_set_tile(t_sprite *sprite, int i, int j, char c)
+{
+	sprite->x = i;
+	sprite->y = j;
+	if (c == ' ')
+		sprite->type = 'x';
+	else
+		sprite->type = c;
+}
+
+static void	set_tile(t_game *g, t_sprite *space, int k)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (++i < g->map.rows)
+	{
+		j = 0;
+		while (++j < (int)ft_strlen(g->map.map[i]))
+		{
+			if (g->map.map[i][j] == 'N' || g->map.map[i][j] == 'S'
+				|| g->map.map[i][j] == 'E' || g->map.map[i][j] == 'W')
+				aux_set_tile(&g->player, i, j, g->map.map[i][j]);
+			if (g->map.map[i][j] == ' ')
+				aux_set_tile(&space[k++], i, j, g->map.map[i][j]);
+		}
+	}
+}
+
 void	parse_map(t_game *game)
 {
-	remove_space(game, 0, -1);
+	t_sprite	space[100];
 
+	remove_space(game, 0, -1);
+	set_tile(game, space, 0);
+	check_path(game);
 }
