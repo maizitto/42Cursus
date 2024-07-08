@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:30:30 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/07/08 11:40:33 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:42:48 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,6 @@ void	init_game(t_game *game, char *str)
 	if (!game->file)
 		quit(MALLOC_ERR, 1);
 	init_textures(game);
-	set_wall(game);
+	if (set_wall(game, 0))
+		quit(DATA_ERR, 1);
 }

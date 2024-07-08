@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:09:14 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/07/08 11:35:39 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/07/08 12:45:44 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define GNL_ERR "get_next_line error"
 # define TEXTURE_ERR "texture error"
 # define RGB_ERR "rgb error"
+
 
 void		quit(char *str, int flag);
 

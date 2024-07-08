@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:45:00 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/07/08 11:45:36 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:45:51 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ int	ft_atoi(const char *str)
 {
 	int	number;
 	int	sign;
+	int	flag;
 
 	number = 0;
 	sign = 1;
+	flag = 0;
 	while (my_isspace(*str) == 1)
 		str++;
 	if (*str == '-' || *str == '+')
@@ -40,6 +42,19 @@ int	ft_atoi(const char *str)
 	{
 		number = (number * 10) + (*str - '0');
 		str++;
+		flag++;
 	}
+	if (flag == 0)
+		return (-1);
 	return (sign * number);
+}
+
+int	skip_spaces(char *file)
+{
+	int	i;
+
+	i = 0;
+	while (file[i] == ' ')
+		i++;
+	return (i);
 }
