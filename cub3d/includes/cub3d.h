@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:03:38 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/07/07 20:12:08 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/07/08 11:46:05 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@
 
 //init
 void	init_game(t_game *game, char *str);
+void	set_wall(t_game *g);
 
-//parser
-int		parser(t_game *game);
+//utils
+int		ft_atoi(const char *str);
 
+//errors
+void	quit(char *str, int flag);
 #endif

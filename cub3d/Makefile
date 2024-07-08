@@ -17,8 +17,8 @@ ascii_art:
 	@echo "\033[1;36m ╚═════╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚═════╝ \033[0m"
 
 SRCS = cub3d.c \
-		src/gnl/get_next_line.c src/gnl/get_next_line_utils.c \
-		src/init.c src/parser.c src/errors.c
+		src/gnl/get_next_line.c src/gnl/get_next_line_utils.c src/gnl/utils.c \
+		src/init_struct.c src/init_game.c src/errors.c
 
 OBJS = $(SRCS:.c=.o)
 
