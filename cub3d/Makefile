@@ -19,11 +19,11 @@ endif
 MLX_DIR = mlx/
 MLX_PATH = $(MLX_DIR)$(MLX_LIB)
 
-.PHONY: all clean fclean re git prepare_mlx ascii_art
+.PHONY: all clean fclean re git mlx ascii_art
 
-all: prepare_mlx $(NAME) ascii_art
+all: mlx $(NAME) ascii_art
 
-prepare_mlx:
+mlx:
 	@rm -rf $(MLX_DIR)
 	@mkdir -p $(MLX_DIR)
 	@cp -r $(MLX_VERSION_DIR)/* $(MLX_DIR)
