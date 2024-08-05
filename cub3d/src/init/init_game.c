@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:41:40 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 12:42:05 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:35:33 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	*xti(t_game *g, char *path)
 	return (buffer);
 }
 
-static void	init_textures_pixels(t_game *g)
+void	init_textures_pixels(t_game *g)
 {
 	int	i;
 

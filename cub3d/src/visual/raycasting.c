@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 12:28:53 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 13:24:03 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:13:20 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ static void	dda_init(t_game *game, t_ray *ray)
 
 static void	dda_exec(t_game *g, t_ray *ray)
 {
-	while (ray->side == 0)
+	int	hit;
+
+	hit = 0;
+	while (hit == 0)
 	{
 		if (ray->side_x < ray->side_y)
 		{
@@ -65,12 +68,8 @@ static void	dda_exec(t_game *g, t_ray *ray)
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
-		if (ray->map_x >= 0 && ray->map_x < g->map.cols
-			&& ray->map_y >= 0 && ray->map_y < g->map.rows)
-		{
-			if (g->map.map[ray->map_x][ray->map_y] == '1')
-				ray->side = 1;
-		}
+		if (g->map.map[ray->map_x][ray->map_y] == '1')
+			hit = 1;
 	}
 }
 
@@ -91,51 +90,6 @@ static void	calculate_line(t_game *g, t_ray *ray)
 		ray->draw_end = RES_Y - 1;
 }
 
-static void	get_texture_index(t_wal_text *data, t_ray *ray)
-{
-	if (ray->side == 0)
-	{
-		if (ray->dir_x < 0)
-			data->index = WEST;
-		else
-			data->index = EAST;
-	}
-	else
-	{
-		if (ray->dir_y > 0)
-			data->index = SOUTH;
-		else
-			data->index = NORTH;
-	}
-}
-
-void	up_texture(t_data *d, t_wal_text *tex, t_ray *ray, int x)
-{
-	int			y;
-	int			color;
-
-	get_texture_index(tex, ray);
-	tex->x = (int)(ray->wall_x * tex->size);
-	if ((ray->side == 0 && ray->dir_x < 0)
-		|| (ray->side == 1 && ray->dir_y > 0))
-		tex->x = tex->size - tex->x - 1;
-	tex->step = 1.0 * tex->size / ray->line_height;
-	tex->pos = (ray->draw_start - RES_Y / 2
-			+ ray->line_height / 2) * tex->step;
-	y = ray->draw_start;
-	while (y < ray->draw_end)
-	{
-		tex->y = (int)tex->pos & (tex->size - 1);
-		tex->pos += tex->step;
-		color = d->textures[tex->index][tex->size * tex->y + tex->x];
-		if (tex->index == NORTH || tex->index == EAST)
-			color = (color >> 1) & 8355711;
-		if (color > 0)
-			d->texture_pixels[y][x] = color;
-		y++;
-	}
-}
-
 void	raycasting(t_game *g)
 {
 	int		x;
@@ -143,10 +97,15 @@ void	raycasting(t_game *g)
 	x = -1;
 	while (++x < RES_X)
 	{
+		(void)dda_exec;
+		(void)dda_init;
+		(void)init_raycast;
+		(void)calculate_line;
+		(void)up_texture;
 		init_raycast(x, &g->ray, g);
-		dda_init(g, &g->ray);
-		dda_exec(g, &g->ray);
-		calculate_line(g, &g->ray);
-		up_texture(&g->data, &g->w_text, &g->ray, x);
+		// dda_init(g, &g->ray);
+		// dda_exec(g, &g->ray);
+		// calculate_line(g, &g->ray);
+		// up_texture(&g->data, &g->w_text, &g->ray, x);
 	}
 }

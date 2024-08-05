@@ -50,7 +50,7 @@ SRCS = cub3d.c \
 		src/init/init_struct.c src/init/init_struct2.c src/init/init_game.c src/init/init_engine.c \
 		src/validator/file_function.c src/validator/flood.c src/validator/parser.c src/validator/validate_map.c \
 		src/movement/input.c src/movement/moves.c src/movement/rotate.c \
-		src/visual/game.c src/visual/raycasting.c \
+		src/visual/game.c src/visual/raycasting.c src/visual/texture.c \
 
 OBJS = $(SRCS:%.c=obj/%.o)
 

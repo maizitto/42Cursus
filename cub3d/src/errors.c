@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:03:33 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 12:34:13 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:33:18 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	reset_matrix(int **matrix)
 	{
 		j = -1;
 		while (++j < RES_X)
+		{
 			matrix[i][j] = 0;
+		}
 	}
 }

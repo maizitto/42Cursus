@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 21:20:42 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 12:04:28 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 14:39:33 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@ static int	key_release(int keycode, t_game *g)
 
 void	input(t_game *g)
 {
-	(void)g;
-	(void)key_press;
-	(void)key_release;
-	(void)movs;
 	mlx_hook(g->data.win, 17, 0, ft_close_x, g);
 	mlx_hook(g->data.win, 2, 1L << 0, key_press, g);
 	mlx_hook(g->data.win, 3, 1L << 1, key_release, g);

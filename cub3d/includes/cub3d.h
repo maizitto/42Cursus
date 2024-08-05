@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:03:38 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 12:17:42 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:30:28 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	init_elements_struct(t_elements *elements);
 void	init_elements(t_game *game);
 void	init_player(t_player *player);
 void	init_ray(t_ray *ray);
+void	init_textures_pixels(t_game *game);
 void	init_minimap_struct(t_minimap *minimap);
 void	init_map(t_map *map);
 void	init_struct(t_game *game);
@@ -70,5 +71,7 @@ int		movs(t_game *g);
 int 	routine(t_game *game);
 void	visual(t_game *game);
 void	raycasting(t_game *game);
+void	up_texture(t_data *d, t_wal_text *tex, t_ray *ray, int x);
+
 
 #endif

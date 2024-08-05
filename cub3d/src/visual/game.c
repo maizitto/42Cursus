@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:03:33 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 12:52:20 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:45:28 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,25 +57,23 @@ static void	draw(t_game *g, t_asset *asset)
 	int	x;
 	int	y;
 
-	x = 0;
-	while (x < RES_X)
+	y = 0;
+	while (y < RES_Y)
 	{
-		y = 0;
-		while (y < RES_Y)
+		x = 0;
+		while (x < RES_X)
 		{
 			pixel_color(g, asset, x, y);
-			y++;
+			x++;
 		}
-		x++;
+		y++;
 	}
 	mlx_put_image_to_window(g->data.mlx, g->data.win, asset->img, 0, 0);
-	mlx_destroy_image(g->data.mlx, asset->img);
+	// mlx_destroy_image(g->data.mlx, asset->img);
 }
 
 void	visual(t_game *g)
 {
-	(void)raycasting;
-	(void)draw;
 	reset_matrix(g->data.texture_pixels);
 	init_ray(&g->ray);
 	raycasting(g);
