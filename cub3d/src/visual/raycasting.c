@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 12:28:53 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 13:08:13 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 13:24:03 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,19 +91,47 @@ static void	calculate_line(t_game *g, t_ray *ray)
 		ray->draw_end = RES_Y - 1;
 }
 
-static void	draw_line(t_game *g, t_ray *ray, int x)
+static void	get_texture_index(t_wal_text *data, t_ray *ray)
 {
-	int	y;
-
-	y = 0;
-	while (y < RES_Y)
+	if (ray->side == 0)
 	{
-		if (y < ray->draw_start)
-			g->data.texture_pixels[y][x] = g->map.c_color;
-		else if (y >= ray->draw_start && y <= ray->draw_end)
-			g->data.texture_pixels[y][x] = g->map.f_color;
+		if (ray->dir_x < 0)
+			data->index = WEST;
 		else
-			g->data.texture_pixels[y][x] = 0;
+			data->index = EAST;
+	}
+	else
+	{
+		if (ray->dir_y > 0)
+			data->index = SOUTH;
+		else
+			data->index = NORTH;
+	}
+}
+
+void	up_texture(t_data *d, t_wal_text *tex, t_ray *ray, int x)
+{
+	int			y;
+	int			color;
+
+	get_texture_index(tex, ray);
+	tex->x = (int)(ray->wall_x * tex->size);
+	if ((ray->side == 0 && ray->dir_x < 0)
+		|| (ray->side == 1 && ray->dir_y > 0))
+		tex->x = tex->size - tex->x - 1;
+	tex->step = 1.0 * tex->size / ray->line_height;
+	tex->pos = (ray->draw_start - RES_Y / 2
+			+ ray->line_height / 2) * tex->step;
+	y = ray->draw_start;
+	while (y < ray->draw_end)
+	{
+		tex->y = (int)tex->pos & (tex->size - 1);
+		tex->pos += tex->step;
+		color = d->textures[tex->index][tex->size * tex->y + tex->x];
+		if (tex->index == NORTH || tex->index == EAST)
+			color = (color >> 1) & 8355711;
+		if (color > 0)
+			d->texture_pixels[y][x] = color;
 		y++;
 	}
 }
@@ -119,6 +147,6 @@ void	raycasting(t_game *g)
 		dda_init(g, &g->ray);
 		dda_exec(g, &g->ray);
 		calculate_line(g, &g->ray);
-		draw_line(g, &g->ray, x);
+		up_texture(&g->data, &g->w_text, &g->ray, x);
 	}
 }

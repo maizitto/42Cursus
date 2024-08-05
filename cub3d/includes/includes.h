@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:04:35 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 11:58:04 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 13:21:22 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@
 
 # define MOVE_SPEED 3.0
 # define ROT_SPEED 1.5
+
+# define NORTH 0
+# define SOUTH 1
+# define WEST 2
+# define EAST 3
 
 //keycodes
 // # define KEY_ESC 53
