@@ -14,8 +14,11 @@
 
 static void	ft_error(char *str)
 {
-	write(1, "Error\n", 6);
-	write(1, str, ft_strlen(str));
+	int	x;
+
+	x = write(1, "Error\n", 6);
+	x = write(1, str, ft_strlen(str));
+	(void)x;
 	exit(0);
 }
 

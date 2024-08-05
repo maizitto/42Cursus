@@ -74,7 +74,6 @@ fclean: clean
 	@rm -rf $(MLX_DIR)
 
 git:
-	make fclean
 	git add .
 	git commit -m "update"
 	git push
