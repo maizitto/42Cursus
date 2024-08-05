@@ -29,8 +29,10 @@ mlx:
 	@cp -r $(MLX_VERSION_DIR)/* $(MLX_DIR)
 	@if [ "$(UNAME_S)" = "Linux" ]; then \
 		(cd $(MLX_DIR) && ./configure && $(MAKE)); \
+		cp $(MLX_DIR)$(MLX_LIB) ./; \
 	elif [ "$(UNAME_S)" = "Darwin" ]; then \
 		(make -C $(MLX_DIR)); \
+		cp $(MLX_DIR)$(MLX_LIB) ./; \
 	fi
 
 ascii_art:
