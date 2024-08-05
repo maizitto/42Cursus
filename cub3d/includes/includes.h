@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:04:35 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/04 11:11:09 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 11:58:04 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@
 # define ROT_SPEED 1.5
 
 //keycodes
-# define KEY_ESC 53
-# define KEY_W 13
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
-# define KEY_LEFT 123
-# define KEY_RIGHT 124
-# define KEY_UP 126
-# define KEY_DOWN 125
+// # define KEY_ESC 53
+// # define KEY_W 13
+// # define KEY_A 0
+// # define KEY_S 1
+// # define KEY_D 2
+// # define KEY_LEFT 123
+// # define KEY_RIGHT 124
+// # define KEY_UP 126
+// # define KEY_DOWN 125
 
 #endif

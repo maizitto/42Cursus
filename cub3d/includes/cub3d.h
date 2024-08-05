@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:03:38 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/04 12:26:24 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 12:17:42 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ void	*ft_calloc(size_t count, size_t size);
 char	**ft_split(char const *s, char c);
 int		skip_spaces(char *file);
 void	print_matrix(char **matrix);
+void	print_controls();
+void	print_info(t_game *game);
+unsigned long	get_time_in_mms(void);
+void	draw_fps_counter(t_game *g);
+
 
 //init
 void	init_asset(t_asset *img);
@@ -51,5 +56,19 @@ char	**store_file(char *path);
 void	check_path(t_game *game, t_sprite *space);
 void	parse_map(t_game *game);
 bool	set_wall(t_game *game, int index);
+
+//movement
+void	forward_move(t_game *g);
+void	back_move(t_game *g);
+void	left_move(t_game *g);
+void	right_move(t_game *g);
+void	rotate(t_game *g, double rotdir);
+void	input(t_game *g);
+int		movs(t_game *g);
+
+//game
+int 	routine(t_game *game);
+void	visual(t_game *game);
+void	raycasting(t_game *game);
 
 #endif

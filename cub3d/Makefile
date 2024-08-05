@@ -45,10 +45,12 @@ ascii_art:
 
 SRCS = cub3d.c \
 		src/errors.c \
-		src/utils/split.c src/utils/utils.c \
+		src/utils/split.c src/utils/utils.c src/utils/fps.c src/utils/game_utils.c\
 		src/gnl/get_next_line.c src/gnl/get_next_line_utils.c \
 		src/init/init_struct.c src/init/init_struct2.c src/init/init_game.c src/init/init_engine.c \
-		src/validator/file_function.c src/validator/flood.c src/validator/parser.c src/validator/validate_map.c
+		src/validator/file_function.c src/validator/flood.c src/validator/parser.c src/validator/validate_map.c \
+		src/movement/input.c src/movement/moves.c src/movement/rotate.c \
+		src/visual/game.c src/visual/raycasting.c \
 
 OBJS = $(SRCS:%.c=obj/%.o)
 
