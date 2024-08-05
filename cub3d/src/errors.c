@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:03:33 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/02 17:36:52 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 12:34:13 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static void	ft_error(char *str)
 
 void	quit(char *str, int flag)
 {
-	ft_error(str);
+	if (flag != 0)
+		ft_error(str);
 	if (flag == 1)
 		exit(0);
 }

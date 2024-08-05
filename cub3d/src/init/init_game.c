@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:41:40 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 11:42:21 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 12:42:05 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,22 @@ static int	*xti(t_game *g, char *path)
 	return (buffer);
 }
 
+static void	init_textures_pixels(t_game *g)
+{
+	int	i;
+
+	i = -1;
+	g->data.texture_pixels = ft_calloc(RES_Y + 1, sizeof(int *));
+	if (!g->data.texture_pixels)
+		quit(MALLOC_ERR, 1);
+	while (++i < RES_Y)
+	{
+		g->data.texture_pixels[i] = ft_calloc(RES_X + 1, sizeof(int));
+		if (!g->data.texture_pixels[i])
+			quit(MALLOC_ERR, 1);
+	}
+}
+
 void	init_mlx(t_game *g)
 {
 	g->data.mlx = mlx_init();
@@ -63,6 +79,7 @@ void	init_mlx(t_game *g)
 	g->data.textures[1] = xti(g, g->w_text.so);
 	g->data.textures[2] = xti(g, g->w_text.we);
 	g->data.textures[3] = xti(g, g->w_text.ea);
+	init_textures_pixels(g);
 	return ;
 }
 

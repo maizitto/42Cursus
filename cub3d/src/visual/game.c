@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:03:33 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 12:17:49 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 12:43:38 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ static void	draw(t_game *g, t_asset *asset)
 
 void	visual(t_game *g)
 {
+	(void)raycasting;
+	(void)draw;
 	reset_matrix(g->data.texture_pixels);
 	init_ray(&g->ray);
 	raycasting(g);
