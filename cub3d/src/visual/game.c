@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:03:33 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 15:48:01 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 16:04:41 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	routine(t_game *g)
 		g->player.rot_speed = g->frametime_sec * ROT_SPEED;
 		input(g);
 		visual(g);
-		draw_fps_counter(g);
+		if (BONUS)
+			draw_fps_counter(g);
 		last_frame_time = current_time;
 	}
 	return (0);

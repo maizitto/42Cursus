@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 12:28:53 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 15:13:20 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:56:12 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,10 @@ void	raycasting(t_game *g)
 	x = -1;
 	while (++x < RES_X)
 	{
-		(void)dda_exec;
-		(void)dda_init;
-		(void)init_raycast;
-		(void)calculate_line;
-		(void)up_texture;
 		init_raycast(x, &g->ray, g);
-		// dda_init(g, &g->ray);
-		// dda_exec(g, &g->ray);
-		// calculate_line(g, &g->ray);
-		// up_texture(&g->data, &g->w_text, &g->ray, x);
+		dda_init(g, &g->ray);
+		dda_exec(g, &g->ray);
+		calculate_line(g, &g->ray);
+		up_texture(&g->data, &g->w_text, &g->ray, x);
 	}
 }

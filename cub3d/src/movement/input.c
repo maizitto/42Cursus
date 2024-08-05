@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 21:20:42 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 15:47:37 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:50:27 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static int	key_press(int keycode, t_game *g)
 {
-	printf("keycode: %d\n", keycode);
 	if (keycode < 256)
 		g->player.keys[keycode] = 1;
 	else if (keycode == 0xFF51)
