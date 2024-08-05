@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:25:22 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 14:42:38 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:46:22 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 		quit(START_ERR, 1);
 	init_game(&game, argv[1]);
 	init_engine(&game);
-	//input(&game);
+	input(&game);
 	// print_controls();
 	// print_info(&game);
 	mlx_loop_hook(game.data.mlx, routine, &game);
