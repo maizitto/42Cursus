@@ -147,7 +147,5 @@ typedef struct s_game
 	t_ray					ray;
 	double					frametime_sec;
 }				t_game;
-
-static unsigned long	last_frame_time;
  
 #endif

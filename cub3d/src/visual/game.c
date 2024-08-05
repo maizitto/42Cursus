@@ -16,7 +16,9 @@ int	routine(t_game *g)
 {
 	unsigned long			current_time;
 	unsigned long			frame_time;
+	static unsigned long	last_frame_time;
 
+	last_frame_time = 0;
 	current_time = get_time_in_mms();
 	frame_time = current_time - last_frame_time;
 	if (frame_time >= FPS_LIMIT)
@@ -79,6 +81,6 @@ void	visual(t_game *g)
 	reset_matrix(g->data.texture_pixels);
 	init_ray(&g->ray);
 	raycasting(g);
-		draw(g);
+	draw(g);
 		//draw_minimap(g);
 }

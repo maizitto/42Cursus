@@ -35,7 +35,6 @@ void	forward_move(t_game *g)
 		g->player.x = new_x;
 		g->player.y = new_y;
 	}
-	print_matrix(g->map.map);
 }
 
 void	back_move(t_game *g)

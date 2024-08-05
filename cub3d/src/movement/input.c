@@ -17,17 +17,15 @@ static int	key_press(int keycode, t_game *g)
 	if (keycode < 256)
 	{
 		// per mac
-		if (keycode == 0)
-			keycode = 'a';
-		if (keycode == 1)
-			keycode = 's';
-		if (keycode == 2)
-			keycode = 'd';
-		if (keycode == 13)
-			keycode = 'w';
+		// if (keycode == 0)
+		// 	keycode = 'a';
+		// if (keycode == 1)
+		// 	keycode = 's';
+		// if (keycode == 2)
+		// 	keycode = 'd';
+		// if (keycode == 13)
+		// 	keycode = 'w';
 		g->player.keys[keycode] = 1;
-		printf("keycode = %d\n", keycode);
-		printf("g->player.keys[keycode] = %d\n", g->player.keys[keycode]);
 	}
 	else if (keycode == 0xFF51)
 		g->player.keys[1] = 1;
