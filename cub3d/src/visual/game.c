@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:03:33 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 12:43:38 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 12:52:20 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static void	draw(t_game *g, t_asset *asset)
 		x++;
 	}
 	mlx_put_image_to_window(g->data.mlx, g->data.win, asset->img, 0, 0);
+	mlx_destroy_image(g->data.mlx, asset->img);
 }
 
 void	visual(t_game *g)
