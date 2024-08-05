@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 12:58:12 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 11:55:58 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 19:08:05 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	forward_move(t_game *g)
 		g->player.x = new_x;
 		g->player.y = new_y;
 	}
+	print_matrix(g->map.map);
 }
 
 void	back_move(t_game *g)

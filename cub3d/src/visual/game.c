@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:03:33 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 17:52:59 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 18:45:51 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	routine(t_game *g)
 		g->frametime_sec = frame_time / 1000.0;
 		g->player.move_speed = g->frametime_sec * MOVE_SPEED;
 		g->player.rot_speed = g->frametime_sec * ROT_SPEED;
-		input(g);
+		movs(g);
 		visual(g);
 		if (BONUS)
 			draw_fps_counter(g);
@@ -79,6 +79,6 @@ void	visual(t_game *g)
 	reset_matrix(g->data.texture_pixels);
 	init_ray(&g->ray);
 	raycasting(g);
-	draw(g);
-	//draw_minimap(g);
+		draw(g);
+		//draw_minimap(g);
 }
