@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 12:28:53 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 15:56:12 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 18:17:31 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,21 @@ static void	dda_exec(t_game *g, t_ray *ray)
 static void	calculate_line(t_game *g, t_ray *ray)
 {
 	if (ray->side == 0)
-		ray->wall_dist = (ray->map_x - g->player.x + (1 - ray->step_x) / 2)
-			/ ray->dir_x;
+		ray->wall_dist = (ray->side_x - ray->delta_x);
 	else
-		ray->wall_dist = (ray->map_y - g->player.y + (1 - ray->step_y) / 2)
-			/ ray->dir_y;
+		ray->wall_dist = (ray->side_y - ray->delta_y);
 	ray->line_height = (int)(RES_Y / ray->wall_dist);
-	ray->draw_start = ray->line_height / 2 + RES_Y / 2;
+	ray->draw_start = -(ray->line_height) / 2 + RES_Y / 2;
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
 	ray->draw_end = ray->line_height / 2 + RES_Y / 2;
 	if (ray->draw_end >= RES_Y)
 		ray->draw_end = RES_Y - 1;
+	if (ray->side == 0)
+		ray->wall_x = g->player.y + ray->wall_dist * ray->dir_y;
+	else
+		ray->wall_x = g->player.x + ray->wall_dist * ray->dir_x;
+	ray->wall_x -= floor(ray->wall_x);
 }
 
 void	raycasting(t_game *g)

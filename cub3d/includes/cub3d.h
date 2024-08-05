@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:03:38 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 15:30:28 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 16:55:49 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	init_struct(t_game *game);
 void	init_mlx(t_game *game);
 void	init_game(t_game *game, char *path_map);
 void	init_engine(t_game *game);
+void	init_img_details(t_game *g, t_asset *img, int width, int height);
+
 
 //validator
 bool	path_validator(char *path);

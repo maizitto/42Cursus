@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:41:40 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 15:35:33 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:49:51 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,10 @@ void	init_mlx(t_game *g)
 	g->data.textures[2] = xti(g, g->w_text.we);
 	g->data.textures[3] = xti(g, g->w_text.ea);
 	init_textures_pixels(g);
+	g->map.c_color = (g->w_text.c_rgb.r << 16) + (g->w_text.c_rgb.g << 8)
+		+ g->w_text.c_rgb.b;
+	g->map.f_color = (g->w_text.f_rgb.r << 16) + (g->w_text.f_rgb.g << 8)
+		+ g->w_text.f_rgb.b;
 	return ;
 }
 

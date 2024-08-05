@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:41:40 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/04 12:16:32 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 16:55:41 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	init_player_mov(t_game *g)
 		aux_init_player_mov(g);
 }
 
-static void	init_img_details(t_game *g, t_asset *img, int width, int height)
+void	init_img_details(t_game *g, t_asset *img, int width, int height)
 {
 	init_asset(img);
 	img->img = mlx_new_image(g->data.mlx, width, height);

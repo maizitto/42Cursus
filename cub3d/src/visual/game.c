@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:03:33 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 16:04:41 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:52:59 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int	routine(t_game *g)
 {
-	static unsigned long	last_frame_time;
 	unsigned long			current_time;
 	unsigned long			frame_time;
 
-	last_frame_time = 0;
 	current_time = get_time_in_mms();
 	frame_time = current_time - last_frame_time;
 	if (frame_time >= FPS_LIMIT)
@@ -53,23 +51,26 @@ static void	pixel_color(t_game *g, t_asset *asset, int x, int y)
 		set_color(asset, x, y, g->map.f_color);
 }
 
-static void	draw(t_game *g, t_asset *asset)
+static void	draw(t_game *g)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	t_asset	frame;
 
 	y = 0;
+	init_asset(&frame);
+	init_img_details(g, &frame, RES_X, RES_Y);
 	while (y < RES_Y)
 	{
 		x = 0;
 		while (x < RES_X)
 		{
-			pixel_color(g, asset, x, y);
+			pixel_color(g, &frame, x, y);
 			x++;
 		}
 		y++;
 	}
-	mlx_put_image_to_window(g->data.mlx, g->data.win, asset->img, 0, 0);
+	mlx_put_image_to_window(g->data.mlx, g->data.win, frame.img, 0, 0);
 	// mlx_destroy_image(g->data.mlx, asset->img);
 }
 
@@ -78,6 +79,6 @@ void	visual(t_game *g)
 	reset_matrix(g->data.texture_pixels);
 	init_ray(&g->ray);
 	raycasting(g);
-	draw(g, &g->frame);
+	draw(g);
 	//draw_minimap(g);
 }
