@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:21:10 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 17:44:29 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/06 10:24:06 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,8 +146,7 @@ typedef struct s_game
 	t_wal_text				w_text;
 	t_ray					ray;
 	double					frametime_sec;
+	unsigned long			*last_frame_time;
 }				t_game;
 
-static unsigned long	last_frame_time;
- 
 #endif

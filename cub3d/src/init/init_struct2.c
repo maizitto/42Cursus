@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:30:30 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 17:34:45 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/06 10:17:57 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,4 @@ void	init_struct(t_game *game)
 	init_wal_text(&game->w_text);
 	init_ray(&game->ray);
 	game->frametime_sec = 0;
-	last_frame_time = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:03:33 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 18:45:51 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/06 10:27:35 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int	routine(t_game *g)
 {
 	unsigned long			current_time;
 	unsigned long			frame_time;
+	unsigned long			last_frame_time;
 
+	last_frame_time = *(g->last_frame_time);
 	current_time = get_time_in_mms();
 	frame_time = current_time - last_frame_time;
 	if (frame_time >= FPS_LIMIT)

@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 21:20:42 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/05 19:07:40 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/06 10:28:27 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ static int	key_press(int keycode, t_game *g)
 	if (keycode < 256)
 	{
 		// per mac
-		if (keycode == 0)
-			keycode = 'a';
-		if (keycode == 1)
-			keycode = 's';
-		if (keycode == 2)
-			keycode = 'd';
-		if (keycode == 13)
-			keycode = 'w';
+		// if (keycode == 0)
+		// 	keycode = 'a';
+		// if (keycode == 1)
+		// 	keycode = 's';
+		// if (keycode == 2)
+		// 	keycode = 'd';
+		// if (keycode == 13)
+		// 	keycode = 'w';
 		g->player.keys[keycode] = 1;
-		printf("keycode = %d\n", keycode);
-		printf("g->player.keys[keycode] = %d\n", g->player.keys[keycode]);
+		// printf("keycode = %d\n", keycode);
+		// printf("g->player.keys[keycode] = %d\n", g->player.keys[keycode]);
 	}
 	else if (keycode == 0xFF51)
 		g->player.keys[1] = 1;
