@@ -6,7 +6,7 @@
 /*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:03:33 by mmasitto          #+#    #+#             */
-/*   Updated: 2024/08/06 10:27:35 by mmasitto         ###   ########.fr       */
+/*   Updated: 2024/08/06 10:34:29 by mmasitto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ void	visual(t_game *g)
 	reset_matrix(g->data.texture_pixels);
 	init_ray(&g->ray);
 	raycasting(g);
-		draw(g);
+	draw(g);
 		//draw_minimap(g);
 }
