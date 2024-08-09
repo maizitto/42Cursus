@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmasitto <mmasitto@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/07 19:25:22 by mmasitto          #+#    #+#             */
+/*   Updated: 2024/08/07 16:29:24 by mmasitto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "includes/cub3d.h"
+
+int	main(int argc, char **argv)
+{
+	t_game					game;
+	static unsigned long	last_frame_time;	
+
+	if (argc != 2)
+		ft_error(START_ERR, 1);
+	last_frame_time = 0;
+	init_game(&game, argv[1]);
+	init_engine(&game);
+	game.last_frame_time = &last_frame_time;
+	input(&game);
+	gnl(-2);
+	// print_controls();
+	// print_info(&game);
+	mlx_loop_hook(game.data.mlx, routine, &game);
+	mlx_loop(game.data.mlx);
+}
